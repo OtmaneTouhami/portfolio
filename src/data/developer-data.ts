@@ -183,8 +183,8 @@ export const developer: DeveloperData = {
     },
   ],
   resume: {
-    enPath: "/resume/en.pdf",
-    frPath: "/resume/fr.pdf",
+    enPath: "/resume/otmane-touhami-en.pdf",
+    frPath: "/resume/otmane-touhami-fr.pdf",
     aboutMdPath: "/resume/me.md",
   },
   stack: {

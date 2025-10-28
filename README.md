@@ -141,8 +141,8 @@ portfolio/
 
    Place your resume PDFs in `public/resume`:
 
-   - `en.pdf` (English resume)
-   - `fr.pdf` (French resume)
+   - `otmane-touhami-en.pdf` (English resume)
+   - `otmane-touhami-fr.pdf` (French resume)
 
 ### Development
 
