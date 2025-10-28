@@ -224,7 +224,7 @@ export const developer: DeveloperData = {
       type: "education",
       title:
         "Bachelor's Degree - Software Engineering and Advanced Administration of Computer Systems and Networks",
-      org: "ESTC Casablanca",
+      org: "EST Casablanca",
       start: "2023",
       end: "2024",
     },
