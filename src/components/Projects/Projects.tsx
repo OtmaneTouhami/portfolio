@@ -44,7 +44,7 @@ export default function Projects() {
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
           variants={containerVariants}
         >
-          {projects.map((p, index) => (
+          {projects.map((p) => (
             <motion.div
               key={p.name}
               className="card p-5 group"

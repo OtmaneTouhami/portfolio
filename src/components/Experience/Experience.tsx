@@ -46,7 +46,7 @@ export default function Experience() {
         <motion.div className="relative space-y-4" variants={timelineVariants}>
           <div className="absolute left-2 top-0 bottom-0 w-px bg-neutral-800" />
 
-          {experience.map((item, index) => (
+          {experience.map((item) => (
             <motion.div
               key={`${item.title}-${item.start}`}
               className="relative pl-8"
