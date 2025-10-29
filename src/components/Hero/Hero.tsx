@@ -4,7 +4,6 @@ import { FaEnvelope, FaGithub, FaLinkedin } from "react-icons/fa6";
 import ParticlesBackground from "../ParticlesBackground";
 import { BsArrowDown } from "react-icons/bs";
 import { motion } from "framer-motion";
-import { scrollToId } from "../../lib/scrollToId";
 
 export default function Hero() {
   const summaryLines = profile.bio.split("\n").filter(Boolean);
@@ -18,6 +17,10 @@ export default function Hero() {
     "Open to 2025 software engineering internships",
   ].filter(Boolean) as string[];
 
+  function scrollToId(id: string) {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
   return (
     <section id="hero" className="section-full bg-black">
       <ParticlesBackground />

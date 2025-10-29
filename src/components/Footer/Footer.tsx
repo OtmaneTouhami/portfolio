@@ -1,10 +1,14 @@
 import { profile } from "../../data/profile";
 import { FaGithub, FaLinkedin, FaEnvelope, FaXTwitter } from "react-icons/fa6";
 import { motion } from "framer-motion";
-import { scrollToId } from "../../lib/scrollToId";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+
+  function scrollToId(id: string) {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
 
   return (
     <motion.footer
