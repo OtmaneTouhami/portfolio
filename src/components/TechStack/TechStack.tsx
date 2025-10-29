@@ -112,7 +112,7 @@ export default function TechStack() {
           className="mx-auto max-w-3xl text-center"
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6 }}
         >
           <h2 className="section-heading mb-2">Tech Stack</h2>
@@ -125,7 +125,7 @@ export default function TechStack() {
               className="flex w-full flex-col items-center"
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, margin: "-100px" }}
+              viewport={{ once: true, margin: "-100px", amount: 0.2 }}
             >
               <motion.div
                 className={`mb-6 rounded-full border px-4 py-1 text-[11px] font-semibold uppercase tracking-[0.3em] ${
@@ -133,7 +133,7 @@ export default function TechStack() {
                 }`}
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
+                viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.5 }}
               >
                 {group.title}

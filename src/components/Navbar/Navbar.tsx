@@ -4,6 +4,7 @@ import type { Mode } from "../../hooks/useAppStore";
 import { clsx } from "clsx";
 import { HiOutlineMenu, HiOutlineX } from "react-icons/hi";
 import { motion, AnimatePresence } from "framer-motion";
+import { scrollToId } from "../../lib/scrollToId";
 
 type NavItem = { id: string; label: string };
 
@@ -18,17 +19,14 @@ const NAV_ITEMS: NavItem[] = [
   { id: "contact", label: "Contact" },
 ];
 
-function scrollToId(id: string) {
-  const el = document.getElementById(id);
-  if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-}
-
 export function Navbar() {
   const mode = useAppStore((s) => s.mode as Mode);
   const [activeSection, setActiveSection] = useState("hero");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
+    const navBar = document.querySelector<HTMLElement>("[data-nav-bar]");
+    const headerOffset = navBar?.getBoundingClientRect().height ?? 0;
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -37,7 +35,7 @@ export function Navbar() {
           }
         });
       },
-      { threshold: [0.5], rootMargin: "-56px 0px 0px 0px" }
+      { threshold: [0.5], rootMargin: `-${headerOffset + 12}px 0px 0px 0px` }
     );
 
     const sections = document.querySelectorAll("section[id]");
@@ -49,8 +47,14 @@ export function Navbar() {
   const items = useMemo(() => NAV_ITEMS, []);
 
   const handleNavClick = (id: string) => {
-    scrollToId(id);
-    setMobileMenuOpen(false);
+    // Close menu first, then scroll after a small delay
+    if (mobileMenuOpen) {
+      setMobileMenuOpen(false);
+      // Wait for menu close animation before scrolling
+      setTimeout(() => scrollToId(id), 350);
+    } else {
+      scrollToId(id);
+    }
   };
 
   return (
@@ -60,7 +64,10 @@ export function Navbar() {
       animate={{ y: 0 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
     >
-      <nav className="container-px mx-auto flex h-14 items-center justify-between">
+      <nav
+        className="container-px mx-auto flex h-14 items-center justify-between"
+        data-nav-bar
+      >
         <button
           onClick={() => handleNavClick("hero")}
           className="font-semibold text-base hover:text-accent transition-colors text-white"
@@ -74,7 +81,7 @@ export function Navbar() {
           {items.map((item) => (
             <button
               key={item.id}
-              onClick={() => scrollToId(item.id)}
+              onClick={() => handleNavClick(item.id)}
               className={clsx(
                 "transition-colors relative font-medium",
                 activeSection === item.id

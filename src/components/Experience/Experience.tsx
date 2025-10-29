@@ -31,13 +31,13 @@ export default function Experience() {
         className="container-px mx-auto max-w-4xl"
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
+        viewport={{ once: true, margin: "-100px", amount: 0.2 }}
       >
         <motion.h2
           className="section-heading mb-8"
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6 }}
         >
           Experience

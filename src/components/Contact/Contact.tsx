@@ -1,7 +1,6 @@
 import { useState } from "react";
 import emailjs from "@emailjs/browser";
 import { profile } from "../../data/profile";
-import ParticlesBackground from "../ParticlesBackground";
 import { motion } from "framer-motion";
 
 export default function Contact() {
@@ -36,12 +35,11 @@ export default function Contact() {
 
   return (
     <section id="contact" className="section-full bg-black">
-      <ParticlesBackground />
       <motion.div
-        className="container-px mx-auto max-w-2xl relative z-10 pointer-events-auto"
+        className="container-px mx-auto max-w-2xl relative z-10"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
+        viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.6 }}
       >
         <div className="card p-6 sm:p-8">
@@ -49,7 +47,7 @@ export default function Contact() {
             className="section-heading mb-2"
             initial={{ opacity: 0, y: -10 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
             Contact
@@ -58,7 +56,7 @@ export default function Contact() {
             className="text-sm text-neutral-400 mb-6"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             Get in touch via the form below or reach out directly.
@@ -68,7 +66,7 @@ export default function Contact() {
             className="flex flex-wrap gap-3 mb-6"
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
             {profile.socials.email && (
@@ -116,7 +114,7 @@ export default function Contact() {
             className="space-y-4"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.5, delay: 0.4 }}
           >
             <div>

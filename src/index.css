@@ -22,6 +22,8 @@ body {
 
 .section-full {
   @apply min-h-screen flex items-center justify-center relative py-16;
+  will-change: transform, opacity;
+  transform: translateZ(0);
 }
 
 .section-heading {
@@ -30,6 +32,8 @@ body {
 
 .card {
   @apply bg-neutral-900 border border-neutral-800 rounded-lg hover:border-cyan-500/50 transition-colors duration-200;
+  will-change: transform;
+  backface-visibility: hidden;
 }
 
 .text-accent {

@@ -3,19 +3,36 @@ import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
 import type { Engine } from "@tsparticles/engine";
 
-export default function ParticlesBackground() {
+interface ParticlesBackgroundProps {
+  particleCount?: number;
+}
+
+export default function ParticlesBackground({
+  particleCount,
+}: ParticlesBackgroundProps) {
   const [init, setInit] = useState(false);
   const particlesId = useId();
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    // Detect mobile devices
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+
+    window.addEventListener("resize", checkMobile);
+
     initParticlesEngine(async (engine: Engine) => {
       await loadSlim(engine);
     }).then(() => {
       setInit(true);
     });
+
+    return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
   if (!init) return null;
+
+  const count = particleCount ?? (isMobile ? 15 : 25);
 
   return (
     <Particles
@@ -26,11 +43,11 @@ export default function ParticlesBackground() {
             value: "transparent",
           },
         },
-        fpsLimit: 60,
+        fpsLimit: isMobile ? 30 : 60,
         interactivity: {
           events: {
             onHover: {
-              enable: false,
+              enable: !isMobile,
               mode: "grab",
             },
           },
@@ -49,7 +66,7 @@ export default function ParticlesBackground() {
           },
           links: {
             color: "#06b6d4",
-            distance: 150,
+            distance: isMobile ? 100 : 150,
             enable: true,
             opacity: 0.25,
             width: 1,
@@ -61,14 +78,14 @@ export default function ParticlesBackground() {
               default: "bounce",
             },
             random: false,
-            speed: 1,
+            speed: isMobile ? 0.5 : 1,
             straight: false,
           },
           number: {
             density: {
               enable: true,
             },
-            value: 40,
+            value: count,
           },
           opacity: {
             value: 0.5,

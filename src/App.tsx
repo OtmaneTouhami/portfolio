@@ -23,16 +23,23 @@ export default function App() {
   useEffect(() => {
     // Track scroll progress with throttled native scroll
     let ticking = false;
+    let lastScrollY = 0;
 
     const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      // Only update if scroll changed by more than 10px
+      if (Math.abs(currentScrollY - lastScrollY) < 10) return;
+
       if (!ticking) {
         window.requestAnimationFrame(() => {
-          const scrollTop = window.scrollY;
+          const scrollTop = currentScrollY;
           const docHeight =
             document.documentElement.scrollHeight - window.innerHeight;
           const progress = docHeight > 0 ? scrollTop / docHeight : 0;
           setScrollProgress(progress);
           setShowBackToTop(scrollTop > 300);
+          lastScrollY = scrollTop;
           ticking = false;
         });
         ticking = true;

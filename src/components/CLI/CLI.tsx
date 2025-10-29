@@ -19,6 +19,8 @@ type ContactDraft = {
 
 const BOOT_MESSAGE = `Welcome to otmane.dev portfolio CLI!\nType 'portfolio --help' or '-h' to see available commands.\nPress Tab to toggle command suggestions.`;
 
+const MAX_LINES = 1000; // Limit CLI history to prevent memory issues
+
 // Note: legacy static COMMANDS removed; dynamic suggestions are computed contextually.
 
 export default function CLI() {
@@ -91,7 +93,14 @@ export default function CLI() {
 
   function println(text: string) {
     idRef.current += 1;
-    setLines((ls) => [...ls, { id: idRef.current, text }]);
+    setLines((ls) => {
+      const newLines = [...ls, { id: idRef.current, text }];
+      // Keep only last MAX_LINES to prevent memory bloat
+      if (newLines.length > MAX_LINES) {
+        return newLines.slice(-MAX_LINES);
+      }
+      return newLines;
+    });
   }
 
   function renderLine(text: string) {
