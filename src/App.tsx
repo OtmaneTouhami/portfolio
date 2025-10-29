@@ -9,7 +9,6 @@ import Resume from "./components/Resume/Resume";
 import Contact from "./components/Contact/Contact";
 import Footer from "./components/Footer/Footer";
 import CLI from "./components/CLI/CLI";
-import SEO from "./components/SEO/SEO";
 import { useAppStore } from "./hooks/useAppStore";
 
 import { AnimatePresence, motion } from "framer-motion";
@@ -50,7 +49,6 @@ export default function App() {
 
   return (
     <div>
-      <SEO />
       {mode !== "cli" && (
         <>
           <Navbar />
