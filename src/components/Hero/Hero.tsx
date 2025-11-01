@@ -22,7 +22,7 @@ export default function Hero() {
     if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
   }
   return (
-    <section id="hero" className="section-full bg-black">
+    <section id="hero" className="section section-full bg-black">
       <ParticlesBackground />
       <div className="container-px pointer-events-auto relative z-10 mx-auto flex max-w-4xl items-center justify-center">
         <motion.div

@@ -26,7 +26,7 @@ export default function Experience() {
   const experience = timeline.filter((t) => t.type === "experience");
 
   return (
-    <section id="experience" className="section-full bg-black">
+    <section id="experience" className="section section-full bg-black">
       <motion.div
         className="container-px mx-auto max-w-4xl"
         initial="hidden"

@@ -25,7 +25,7 @@ const itemVariants = {
 export default function Certifications() {
   const certs = developer.certifications;
   return (
-    <section id="certifications" className="section-full bg-neutral-950">
+    <section id="certifications" className="section section-full bg-neutral-950">
       <motion.div
         className="container-px mx-auto max-w-4xl"
         initial="hidden"

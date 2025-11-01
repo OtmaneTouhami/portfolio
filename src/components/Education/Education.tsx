@@ -26,7 +26,7 @@ export default function Education() {
   const education = timeline.filter((t) => t.type === "education");
 
   return (
-    <section id="education" className="section-full bg-neutral-950">
+    <section id="education" className="section section-full bg-neutral-950">
       <motion.div
         className="container-px mx-auto max-w-4xl"
         initial="hidden"

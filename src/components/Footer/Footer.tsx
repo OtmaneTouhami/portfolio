@@ -12,7 +12,8 @@ export default function Footer() {
 
   return (
     <motion.footer
-      className="bg-neutral-950 border-t border-neutral-800 py-8"
+      id="footer"
+      className="section bg-neutral-950 border-t border-neutral-800 py-8"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}

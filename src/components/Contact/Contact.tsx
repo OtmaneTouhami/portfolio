@@ -34,7 +34,7 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="section-full bg-black">
+    <section id="contact" className="section section-full bg-black">
       <motion.div
         className="container-px mx-auto max-w-2xl relative z-10"
         initial={{ opacity: 0, y: 20 }}

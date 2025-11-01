@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 export default function Resume() {
   return (
-    <section id="resume" className="section-full bg-black">
+    <section id="resume" className="section section-full bg-black">
       <motion.div
         className="container-px mx-auto max-w-3xl"
         initial={{ opacity: 0, y: 20 }}

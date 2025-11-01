@@ -106,8 +106,8 @@ const itemVariants = {
 
 export default function TechStack() {
   return (
-    <section id="stack" className="relative bg-neutral-950">
-      <div className="container-px mx-auto flex min-h-[calc(100vh-56px)] max-w-6xl flex-col justify-center gap-5 pt-24 pb-12">
+    <section id="stack" className="section relative bg-neutral-950">
+      <div className="container-px mx-auto flex min-h-[calc(100vh-2px)] max-w-6xl flex-col justify-center gap-5 pt-24 pb-12">
         <motion.header
           className="mx-auto max-w-3xl text-center"
           initial={{ opacity: 0, y: -20 }}

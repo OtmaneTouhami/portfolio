@@ -14,7 +14,7 @@ export default function Timeline() {
   const items = tab === "education" ? groups.education : groups.experience;
 
   return (
-    <section id="timeline" className="section-full bg-neutral-950">
+    <section id="timeline" className="section section-full bg-neutral-950">
       <div className="container-px mx-auto max-w-4xl h-full flex flex-col py-16">
         <h2 className="section-heading mb-4">Timeline</h2>
 

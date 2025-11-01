@@ -24,7 +24,7 @@ const itemVariants = {
 
 export default function Projects() {
   return (
-    <section id="projects" className="section-full bg-black">
+    <section id="projects" className="section section-full bg-black">
       <motion.div
         className="container-px mx-auto max-w-6xl"
         initial="hidden"
